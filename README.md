@@ -26,4 +26,4 @@ I'm **Eden Jermendi**, an aspiring full-stack developer currently studying at [D
 ### ⚡ Fun fact
 
 I’m originally from **Transylvania** 🏔️ and now based in **Aotearoa New Zealand** 🌿.  
-I love mixing tech with creativity — and when I’m not coding, you’ll probably find me gaming 🎮 or digging into anthropology and linguistics 🌍.
+I love mixing tech with creativity - and when I’m not coding, you’ll probably find me gaming 🎮 or digging into anthropology and linguistics 🌍.
