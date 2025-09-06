@@ -3,11 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My blog</title>
+    <title>Eden's Dev Blog</title>
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
+
   <body>
-    <h1>Kia ora Taiao! (Hello World!)</h1>
-    <p>This is the beginning of my website home page.</p>
-    <p>It will eventually contain a list of links to all my blogs.</p>
+    <div class="container">
+      <header>
+        <h1 id="site-title">Kia ora Taiao! (Hello World!)</h1>
+        <nav>
+          <ul class="nav-bar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog/post1.html">Blog</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section class="intro">
+          <p>
+            Welcome to my web development journey. This blog is where I share
+            what I'm learning, from HTML basics to full-stack projects.
+          </p>
+        </section>
+
+        <section id="latest-posts">
+          <h2>Latest Posts</h2>
+          <ul>
+            <li>
+              <a href="blog/te-houtaewa-template.html"
+                >Example: Te Houtaewa Template</a
+              >
+            </li>
+            <li><a href="#">Sprint 1: Starting with HTML & CSS</a></li>
+            <li><a href="#">Sprint 2: Making It Responsive</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2025 Eden Jermendi |
+        <a href="mailto:ejermendi@gmail.com">Contact</a>
+      </p>
+    </footer>
   </body>
 </html>
