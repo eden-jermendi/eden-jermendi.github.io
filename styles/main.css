@@ -1,5 +1,5 @@
 /* ===============================
-   Eden's Blog Styles
+   Eden's Blog Styles (Refactored)
    =============================== */
 
 /* --- Base reset --- */
@@ -13,24 +13,97 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  /* layout */
+  --container-max: 1200px;
+  --container-pad-x: 1rem;
+  --center-strip: calc(var(--container-max) + (2 * var(--container-pad-x)));
+
+  /* pattern */
+  --tile-size: 75px;
+  --pattern-opacity: 0.5;
+
+  /* colors */
+  --ink: #4f4f4f;
+  --link: #8a2be2;
+  --link-hover: #d946ef;
+  --bg-main: #faf5ff;
+  --bg-gradient-1: rgba(216, 180, 254, 0.15);
+  --bg-gradient-2: rgba(249, 168, 212, 0.12);
+}
+
+/* --- Body background --- */
 body {
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   background: radial-gradient(
       1000px 600px at 10% 10%,
-      rgba(216, 180, 254, 0.25),
+      var(--bg-gradient-1),
       transparent 60%
     ),
     radial-gradient(
       800px 400px at 90% 30%,
-      rgba(249, 168, 212, 0.2),
+      var(--bg-gradient-2),
       transparent 60%
     ),
-    #faf5ff;
-  color: #4f4f4f;
+    var(--bg-main);
+  color: var(--ink);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+}
+
+/* --- Pattern overlay (gutters only) --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('../images/cutcube.png');
+  background-repeat: repeat;
+  background-size: var(--tile-size);
+  opacity: var(--pattern-opacity);
+}
+
+@supports (mask-image: linear-gradient(black, black)) or
+  (-webkit-mask-image: linear-gradient(black, black)) {
+  body::before {
+    mask-image: linear-gradient(
+      to right,
+      black 0,
+      black calc(50% - (var(--center-strip) / 2)),
+      transparent calc(50% - (var(--center-strip) / 2)),
+      transparent calc(50% + (var(--center-strip) / 2)),
+      black calc(50% + (var(--center-strip) / 2)),
+      black 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black 0,
+      black calc(50% - (var(--center-strip) / 2)),
+      transparent calc(50% - (var(--center-strip) / 2)),
+      transparent calc(50% + (var(--center-strip) / 2)),
+      black calc(50% + (var(--center-strip) / 2)),
+      black 100%
+    );
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+  }
+}
+
+/* --- Layout container --- */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 2rem var(--container-pad-x);
+  flex: 1;
+  text-align: center;
 }
 
 /* --- Reusable utilities --- */
@@ -45,19 +118,11 @@ body {
 a {
   text-decoration: none;
   transition: color 0.25s ease;
+  color: var(--link);
 }
 
 a:hover {
-  color: #d946ef;
-}
-
-/* --- Layout container --- */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  flex: 1;
-  text-align: center;
+  color: var(--link-hover);
 }
 
 /* --- Header --- */
@@ -68,7 +133,6 @@ header {
 #site-title {
   font-size: clamp(2.3rem, 6vw, 3rem);
   font-weight: 800;
-  letter-spacing: 0.5px;
   margin-bottom: 1rem;
 }
 
@@ -84,7 +148,7 @@ header {
 
 .nav-bar a {
   font-weight: 600;
-  color: #4f4f4f;
+  color: var(--ink);
   position: relative;
 }
 
@@ -95,7 +159,7 @@ header {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: #8a2be2;
+  background: var(--link);
   transition: width 0.3s ease;
 }
 
@@ -106,7 +170,6 @@ header {
 /* --- Cat Slideshow --- */
 #cat-slideshow {
   margin: 3rem 0;
-  text-align: center;
 }
 
 .slideshow {
@@ -121,14 +184,12 @@ header {
 .slides {
   display: flex;
   transition: transform 0.4s ease;
-  z-index: 1; /* keep slides below buttons */
 }
 
 .slides img {
   width: 100%;
-  height: auto;
-  flex-shrink: 0;
-  max-width: 600px; /* never exceed this width */
+  flex-shrink: 0; /* ✅ fix: ensures each slide keeps full width */
+  max-width: 600px;
   max-height: 700px;
   object-fit: cover;
   border-radius: 12px;
@@ -146,7 +207,7 @@ header {
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s;
-  z-index: 2; /* make sure buttons sit above the slides */
+  z-index: 2;
 }
 
 .slide-btn:hover {
@@ -156,12 +217,11 @@ header {
 .prev {
   left: 10px;
 }
-
 .next {
   right: 10px;
 }
 
-/* --- Intro text --- */
+/* --- Intro --- */
 .intro {
   margin-bottom: 3rem;
 }
@@ -173,7 +233,7 @@ header {
   margin: 0 auto;
 }
 
-/* --- Latest posts list --- */
+/* --- Latest posts --- */
 #latest-posts {
   margin-bottom: 3rem;
 }
@@ -207,11 +267,6 @@ header {
   box-shadow: 0 8px 16px rgba(35, 16, 56, 0.12);
 }
 
-#latest-posts a {
-  color: #8a2be2;
-  font-weight: 500;
-}
-
 /* --- Footer --- */
 footer {
   font-size: 0.9rem;
@@ -219,103 +274,18 @@ footer {
   text-align: center;
   background: #f0e4ff;
   border-top: 2px solid #d3b8ef;
-  color: #4f4f4f;
+  color: var(--ink);
   font-family: 'Fira Code', monospace;
 }
 
 footer a {
-  color: #8a2be2;
+  color: var(--link);
 }
 
-/* --- Responsive tweaks --- */
+/* --- Responsive --- */
 @media (max-width: 600px) {
   .nav-bar {
     flex-direction: column;
     gap: 0.8rem;
   }
-}
-
-/* --- Blog Post Universal Styles --- */
-.blog-post {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  text-align: left;
-  line-height: 1.7;
-  color: #4f4f4f;
-}
-
-.blog-post h1,
-.blog-post h2,
-.blog-post h3 {
-  margin: 1.5rem 0 1rem;
-  font-weight: 700;
-}
-
-.blog-post h1 {
-  font-size: clamp(2rem, 5vw, 2.6rem);
-}
-
-.blog-post h2 {
-  font-size: clamp(1.6rem, 4vw, 2rem);
-}
-
-.blog-post h3 {
-  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
-}
-
-.blog-post h1,
-.blog-post h2 {
-  /* reuse your gradient heading vibe */
-  background: linear-gradient(135deg, #9d4edd 0%, #d946ef 45%, #4f46e5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.15);
-}
-
-.blog-post p {
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-}
-
-.blog-post ul,
-.blog-post ol {
-  margin: 1rem 0 1rem 1.5rem;
-  padding: 0;
-}
-
-.blog-post li {
-  margin-bottom: 0.5rem;
-}
-
-.blog-post a {
-  color: #8a2be2;
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.25s ease, border-color 0.25s ease;
-}
-
-.blog-post a:hover {
-  color: #d946ef;
-  border-bottom: 1px solid #d946ef;
-}
-
-.blog-post code {
-  font-family: 'Fira Code', monospace;
-  background: #f0e4ff;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-.blog-post pre {
-  background: #f0e4ff;
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.95rem;
-  margin: 1.5rem 0;
 }
