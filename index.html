@@ -23,13 +23,69 @@
       </header>
 
       <main>
+        <!-- Intro section -->
         <section class="intro">
+          <h2 class="gradient-heading">I'm Eden</h2>
           <p>
             Welcome to my web development journey. This blog is where I share
             what I'm learning, from HTML basics to full-stack projects.
           </p>
         </section>
 
+        <!-- Cat Slideshow -->
+        <section id="cat-slideshow">
+          <h2 class="gradient-heading">Flat Cats 🐾</h2>
+          <div class="slideshow">
+            <button class="slide-btn prev" aria-label="Previous image">
+              ←
+            </button>
+            <div class="slides">
+              <img
+                src="images/frankie-close-up.jpg"
+                alt="Frankie (Black, brown and beige tabby cat) close-up"
+              />
+              <img
+                src="images/alice-close-up.jpg"
+                alt="Alice (cat) sitting strangely like a human on the couch"
+              />
+              <img
+                src="images/frankie-cuddles.jpg"
+                alt="Frankie being cuddled while looking super relaxed"
+              />
+              <img
+                src="images/alice-looking-cute.jpeg"
+                alt="Close-up portrain of Alice (ashy-beige tabby)"
+              />
+              <img
+                src="images/frankie-asleep-2.jpg"
+                alt="Frankie stretching her front paws while half asleep on the couch"
+              />
+              <img
+                src="images/alice-sitting-weird-2.jpg"
+                alt="Again, Alice sitting strangely like a human on the couch"
+              />
+              <img
+                src="images/frankie-asleep.jpg"
+                alt="Frankie covering her eyes while asleep on the bed"
+              />
+              <img
+                src="images/alice-sitting-weird.jpg"
+                alt="Alice looking right while sitting on the couch (human-like)"
+              />
+              <img
+                src="images/frankies-fangs.jpg"
+                alt="Frankie's single fang is out (extreme close-up)"
+              />
+              <img
+                src="images/curious-alice.jpg"
+                alt="Close-up of Alice looking up and to the side strangely"
+              />
+            </div>
+            <button class="slide-btn next" aria-label="Next image">→</button>
+          </div>
+        </section>
+
+        <!-- Latest posts -->
         <section id="latest-posts">
           <h2 class="gradient-heading">Latest Posts</h2>
           <ul>
@@ -55,5 +111,22 @@
         <a href="mailto:ejermendi@gmail.com">Contact</a>
       </p>
     </footer>
+
+    <!-- Slideshow JS script -->
+    <script>
+      const slides = document.querySelector('.slides')
+      const images = document.querySelectorAll('.slides img')
+      const prevBtn = document.querySelector('.prev')
+      const nextBtn = document.querySelector('.next')
+      let index = 0
+
+      function showSlide(i) {
+        index = (i + images.length) % images.length
+        slides.style.transform = `translateX(${-index * 100}%)`
+      }
+
+      prevBtn.addEventListener('click', () => showSlide(index - 1))
+      nextBtn.addEventListener('click', () => showSlide(index + 1))
+    </script>
   </body>
 </html>

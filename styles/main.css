@@ -48,7 +48,7 @@ a {
 }
 
 a:hover {
-  color: #f472b6;
+  color: #d946ef;
 }
 
 /* --- Layout container --- */
@@ -99,12 +99,66 @@ header {
   transition: width 0.3s ease;
 }
 
-.nav-bar a:hover {
-  color: #d946ef;
-}
-
 .nav-bar a:hover::after {
   width: 100%;
+}
+
+/* --- Cat Slideshow --- */
+#cat-slideshow {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.slideshow {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(35, 16, 56, 0.15);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.4s ease;
+  z-index: 1; /* keep slides below buttons */
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  max-width: 600px; /* never exceed this width */
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Slide buttons */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 0.3em 0.6em;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 2; /* make sure buttons sit above the slides */
+}
+
+.slide-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 
 /* --- Intro text --- */
@@ -156,9 +210,6 @@ header {
 #latest-posts a {
   color: #8a2be2;
   font-weight: 500;
-}
-#latest-posts a:hover {
-  color: #d946ef;
 }
 
 /* --- Footer --- */
