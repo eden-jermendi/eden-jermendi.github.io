@@ -288,14 +288,13 @@ footer a {
     flex-direction: column;
     gap: 0.8rem;
   }
-}
 
-@media (max-width: 600px) {
   .blog-post {
     padding: 1.5rem;
   }
 }
 
+/* --- Blog Post --- */
 .blog-post {
   max-width: 800px;
   margin: 0 auto;
@@ -303,6 +302,9 @@ footer a {
   text-align: left;
   line-height: 1.7;
   color: var(--ink);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .blog-post h1,
@@ -336,8 +338,11 @@ footer a {
 .blog-post p {
   margin-bottom: 1rem;
   font-size: 1.05rem;
-  max-width: 65ch; /* keeps line length readable */
+  max-width: 65ch;
   margin-inline: auto;
+  text-indent: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .blog-post code {
@@ -346,6 +351,8 @@ footer a {
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .blog-post pre {
@@ -356,6 +363,8 @@ footer a {
   font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   margin: 1.5rem 0;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .no-dot {
