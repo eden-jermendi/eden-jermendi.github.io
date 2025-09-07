@@ -188,7 +188,7 @@ header {
 
 .slides img {
   width: 100%;
-  flex-shrink: 0; /* ✅ fix: ensures each slide keeps full width */
+  flex-shrink: 0;
   max-width: 600px;
   max-height: 700px;
   object-fit: cover;
@@ -348,4 +348,8 @@ footer a {
   font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   margin: 1.5rem 0;
+}
+
+.no-dot {
+  list-style: none;
 }
