@@ -290,6 +290,12 @@ footer a {
   }
 }
 
+@media (max-width: 600px) {
+  .blog-post {
+    padding: 1.5rem;
+  }
+}
+
 .blog-post {
   max-width: 800px;
   margin: 0 auto;
@@ -330,6 +336,8 @@ footer a {
 .blog-post p {
   margin-bottom: 1rem;
   font-size: 1.05rem;
+  max-width: 65ch; /* keeps line length readable */
+  margin-inline: auto;
 }
 
 .blog-post code {

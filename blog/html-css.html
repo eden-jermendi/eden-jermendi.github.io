@@ -1,230 +1,162 @@
 <!DOCTYPE html>
-<html lang="en" data-theme>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explaining CSS Classes vs IDs" />
-    <title>Classes vs IDs in HTML/CSS - Eden Jermendi</title>
-
-    <!-- Fonts + shared styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../styles/main.css" />
+    <title>Classes vs IDs in HTML/CSS</title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <h1 id="site-title" class="gradient-heading">
-          Kia ora Taiao! (Hello World!)
-        </h1>
-        <nav>
-          <ul class="nav-bar">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li>
-              <a target="_blank" href="https://www.edenjermendi.com/"
-                >Portfolio</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        <section class="blog-post">
-          <h1>Best Practices around Using Classes vs IDs</h1>
-
-          <p>
-            You may have seen <code>class</code> and <code>id</code> in your
-            HTML and wondered:
-            <em
-              >What's the actual difference? When should I use one over the
-              other?</em
+    <main>
+      <nav>
+        <ul class="nav-bar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li>
+            <a target="_blank" href="https://www.edenjermendi.com/"
+              >Portfolio</a
             >
-            Let's break it down together.
-          </p>
+          </li>
+        </ul>
+      </nav>
 
-          <h2 class="gradient-heading">HTML &amp; CSS: The House Analogy</h2>
-          <p>
-            Think of <strong>HTML</strong> as the <em>blueprint</em> of a house
-            - it tells the browser what to build. <strong>CSS</strong> is the
-            decorator or builder. It paints the walls, adds curtains, and
-            arranges the furniture.
-          </p>
-          <p>
-            But how does CSS know <em>which</em> part of the house to decorate?
-            That's where <strong>classes</strong> and <strong>ids</strong> come
-            in.
-          </p>
+      <article class="blog-post">
+        <h1 class="gradient-heading">
+          Best Practices around Using Classes vs IDs
+        </h1>
 
-          <h2 class="gradient-heading">What is a Class?</h2>
-          <p>
-            A <strong>class</strong> is a label you can reuse on many elements.
-            All elements with that class will share the same styles.
-          </p>
-          <p>
-            <strong>Syntax:</strong> In HTML use <code>class="something"</code>.
-            In CSS use a dot (<code>.</code>).
-          </p>
+        <p>
+          You may have seen <code>class</code> and <code>id</code> in your HTML
+          and wondered:
+          <em
+            >What's the actual difference? When should I use one over the
+            other?</em
+          >
+          Let's break it down together.
+        </p>
 
-          <pre><code>&lt;button class="btn"&gt;Save&lt;/button&gt;
+        <h2 class="gradient-heading">HTML &amp; CSS: The House Analogy</h2>
+        <p>
+          Think of <strong>HTML</strong> as the <em>blueprint</em> of a house.
+          It tells the browser what to build. <strong>CSS</strong> is the
+          decorator or builder. It paints the walls, adds curtains, and arranges
+          the furniture.
+        </p>
+        <p>
+          But how does CSS know <em>which</em> part of the house to decorate?
+          That's where <strong>classes</strong> and <strong>ids</strong> come
+          in.
+        </p>
+
+        <h2 class="gradient-heading">What is a Class?</h2>
+        <p>
+          A <strong>class</strong> is a label you can reuse on many elements.
+          All elements with that class will share the same styles.
+        </p>
+        <p>
+          <strong>Syntax:</strong> In HTML use <code>class="something"</code>.
+          In CSS use a dot (<code>.</code>).
+        </p>
+
+        <pre><code>&lt;button class="btn"&gt;Save&lt;/button&gt;
 &lt;button class="btn"&gt;Cancel&lt;/button&gt;</code></pre>
 
-          <pre><code>.btn {
+        <pre><code>.btn {
   background-color: blue;
   color: white;
   padding: 10px;
   border-radius: 6px;
 }</code></pre>
 
-          <p>
-            Both buttons share the same look thanks to the <code>.btn</code>
-            class.
-          </p>
+        <p>
+          Both buttons share the same look thanks to the
+          <code>.btn</code> class.
+        </p>
 
-          <h2 class="gradient-heading">What is an ID?</h2>
-          <p>
-            An <strong>id</strong> is like a unique name tag. Each
-            <code>id</code> can only appear <em>once</em> on a page.
-          </p>
-          <p>
-            <strong>Syntax:</strong> In HTML use <code>id="something"</code>. In
-            CSS use a hash (<code>#</code>).
-          </p>
+        <h2 class="gradient-heading">What is an ID?</h2>
+        <p>
+          An <strong>id</strong> is like a unique name tag. Each
+          <code>id</code> can only appear <em>once</em> on a page.
+        </p>
+        <p>
+          <strong>Syntax:</strong> In HTML use <code>id="something"</code>. In
+          CSS use a hash (<code>#</code>).
+        </p>
 
-          <pre><code>&lt;h1 id="main-title"&gt;Welcome to My Blog&lt;/h1&gt;</code></pre>
+        <pre><code>&lt;h1 id="main-title"&gt;Welcome to My Blog&lt;/h1&gt;</code></pre>
 
-          <pre><code>#main-title {
+        <pre><code>#main-title {
   font-size: 2.5rem;
   color: darkgreen;
 }</code></pre>
 
-          <p>
-            Only the one element with <code>id="main-title"</code> gets this
-            styling.
-          </p>
+        <p>
+          Only the one element with <code>id="main-title"</code> gets this
+          styling.
+        </p>
 
-          <h2 class="gradient-heading">Classes vs IDs: Quick Comparison</h2>
-          <table>
-            <tr>
-              <th>Feature</th>
-              <th>Class (<code>.class</code>)</th>
-              <th>ID (<code>#id</code>)</th>
-            </tr>
-            <tr>
-              <td>Uniqueness</td>
-              <td>Reusable on many elements</td>
-              <td>Must be unique (once per page)</td>
-            </tr>
-            <tr>
-              <td>Specificity</td>
-              <td>Lower (easy to override)</td>
-              <td>Higher (harder to override)</td>
-            </tr>
-            <tr>
-              <td>Best for…</td>
-              <td>Buttons, cards, nav links, repeated styles</td>
-              <td>Unique sections like headers or footers</td>
-            </tr>
-            <tr>
-              <td>Use in CSS</td>
-              <td><code>.classname { ... }</code></td>
-              <td><code>#idname { ... }</code></td>
-            </tr>
-            <tr>
-              <td>Use in JavaScript</td>
-              <td><code>document.querySelector('.classname')</code> (many)</td>
-              <td><code>document.getElementById('idname')</code> (one)</td>
-            </tr>
-          </table>
+        <h2 class="gradient-heading">Classes vs IDs: Quick Comparison</h2>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Class (<code>.class</code>)</th>
+            <th>ID (<code>#id</code>)</th>
+          </tr>
+          <tr>
+            <td>Uniqueness</td>
+            <td>Reusable on many elements</td>
+            <td>Must be unique (once per page)</td>
+          </tr>
+          <tr>
+            <td>Specificity</td>
+            <td>Lower (easy to override)</td>
+            <td>Higher (harder to override)</td>
+          </tr>
+          <tr>
+            <td>Best for…</td>
+            <td>Buttons, cards, nav links, repeated styles</td>
+            <td>Unique sections like headers or footers</td>
+          </tr>
+          <tr>
+            <td>Use in CSS</td>
+            <td><code>.classname { ... }</code></td>
+            <td><code>#idname { ... }</code></td>
+          </tr>
+          <tr>
+            <td>Use in JavaScript</td>
+            <td><code>document.querySelector('.classname')</code> (many)</td>
+            <td><code>document.getElementById('idname')</code> (one)</td>
+          </tr>
+        </table>
 
-          <h2 class="gradient-heading">Best Practices</h2>
-          <ol class="no-dot">
-            <li>
-              <strong>Use classes for styling</strong>—they're flexible and
-              reusable.
-            </li>
-            <li>
-              <strong>Use IDs sparingly</strong>—only for truly unique elements.
-            </li>
-            <li>
-              <strong>Avoid styling with IDs</strong>—their high specificity can
-              be annoying to override.
-            </li>
-            <li>
-              <strong>Use IDs for JavaScript</strong>—you'll dive into JS later,
-              but IDs are great for grabbing one specific element with
-              <code>document.getElementById()</code>.
-            </li>
-            <li>
-              <strong>Combine wisely</strong>—classes should handle most of your
-              styling.
-            </li>
-          </ol>
-
-          <h2 class="gradient-heading">Putting It All Together</h2>
-          <pre><code>&lt;header id="main-header"&gt;
-  &lt;h1 id="main-title"&gt;My Portfolio&lt;/h1&gt;
-  &lt;nav&gt;
-    &lt;ul&gt;
-      &lt;li class="nav-item"&gt;Home&lt;/li&gt;
-      &lt;li class="nav-item"&gt;Projects&lt;/li&gt;
-      &lt;li class="nav-item"&gt;Contact&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
-</code></pre>
-
-          <pre><code>.nav-item {
-  display: inline-block;
-  margin: 0 10px;
-  color: gray;
-}
-
-#main-header {
-  background-color: lightblue;
-  padding: 20px;
-}</code></pre>
-
-          <p>
-            Here the <code>.nav-item</code> class is reused across multiple list
-            items, while <code>#main-header</code> is applied to just one
-            header.
-          </p>
-
-          <h2 class="gradient-heading">Conclusion</h2>
-          <p>Here's the simple rule of thumb to remember:</p>
-          <ul class="no-dot">
-            <li>
-              ✅ Use <strong>classes</strong> when you want to style many
-              elements the same way. They're flexible and reusable.
-            </li>
-            <li>
-              ❌ Don't use more than one <strong>ID</strong> on a page. An ID
-              should always be unique.
-            </li>
-            <li>
-              ✅ Keep most of your styling in <strong>classes</strong> so your
-              CSS stays clean and easy to manage.
-            </li>
-            <li>
-              ✅ Save <strong>IDs</strong> for special cases like a single
-              header, footer, or when you need a JavaScript hook.
-            </li>
-          </ul>
-          <br />
-          <p>
-            If you're ever unsure just ask yourself: is this style going on more
-            than one element? If yes use a class. If it's only for one specific
-            element an ID is fine.
-          </p>
-        </section>
-      </main>
-    </div>
+        <h2 class="gradient-heading">Best Practices</h2>
+        <ul class="no-dot">
+          <li>
+            ✅ Use <strong>classes</strong> when you want to style many elements
+            the same way. They're flexible and reusable.
+          </li>
+          <li>
+            ❌ Don't use more than one <strong>ID</strong> on a page. An ID
+            should always be unique.
+          </li>
+          <li>
+            ✅ Keep most of your styling in <strong>classes</strong> so your CSS
+            stays clean and easy to manage.
+          </li>
+          <li>
+            ✅ Save <strong>IDs</strong> for special cases like a single header,
+            footer, or when you need a JavaScript hook.
+          </li>
+        </ul>
+        <br />
+        <p>
+          If you're ever unsure just ask yourself: is this style going on more
+          than one element? If yes use a class. If it's only for one specific
+          element an ID is fine.
+        </p>
+      </article>
+    </main>
 
     <footer>
       <p>
