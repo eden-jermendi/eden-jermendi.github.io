@@ -1,5 +1,5 @@
 /* ===============================
-   Eden's Blog Styles (refactored, softer headings)
+   Eden's Blog Styles (clean refactor)
    =============================== */
 
 /* --- Base reset --- */
@@ -33,6 +33,24 @@ body {
   min-height: 100vh;
 }
 
+/* --- Reusable utilities --- */
+.gradient-heading {
+  background: linear-gradient(135deg, #9d4edd 0%, #d946ef 45%, #4f46e5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.18);
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: #f472b6;
+}
+
 /* --- Layout container --- */
 .container {
   max-width: 800px;
@@ -52,11 +70,6 @@ header {
   font-weight: 800;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #9d4edd 0%, #d946ef 45%, #4f46e5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.18);
 }
 
 /* --- Nav --- */
@@ -71,10 +84,8 @@ header {
 
 .nav-bar a {
   font-weight: 600;
-  text-decoration: none;
   color: #4f4f4f;
   position: relative;
-  transition: color 0.25s ease;
 }
 
 .nav-bar a::after {
@@ -89,7 +100,7 @@ header {
 }
 
 .nav-bar a:hover {
-  color: #f472b6;
+  color: #d946ef;
 }
 
 .nav-bar a:hover::after {
@@ -117,11 +128,6 @@ header {
   font-size: 1.7rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #9d4edd 0%, #d946ef 45%, #4f46e5 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1.5px 3.5px rgba(0, 0, 0, 0.15);
 }
 
 #latest-posts ul {
@@ -135,9 +141,11 @@ header {
   border: 1px solid #d3b8ef;
   border-radius: 12px;
   padding: 12px 16px;
-  margin-bottom: 12px;
+  margin: 6px auto;
   box-shadow: 0 4px 10px rgba(35, 16, 56, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 450px;
+  min-width: 240px;
 }
 
 #latest-posts li:hover {
@@ -148,12 +156,9 @@ header {
 #latest-posts a {
   color: #8a2be2;
   font-weight: 500;
-  text-decoration: none;
-  transition: color 0.25s ease;
 }
-
 #latest-posts a:hover {
-  color: #f472b6;
+  color: #d946ef;
 }
 
 /* --- Footer --- */
@@ -169,12 +174,6 @@ footer {
 
 footer a {
   color: #8a2be2;
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-
-footer a:hover {
-  color: #f472b6;
 }
 
 /* --- Responsive tweaks --- */
