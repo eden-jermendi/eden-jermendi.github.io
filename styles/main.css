@@ -370,3 +370,7 @@ footer a {
 .no-dot {
   list-style: none;
 }
+
+.inside-dot {
+  list-style: inside;
+}
