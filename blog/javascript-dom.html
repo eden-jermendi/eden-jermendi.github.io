@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript & The DOM - Eden Jermendi</title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <main>
+      <nav>
+        <ul class="nav-bar no-dot">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li>
+            <a target="_blank" href="https://www.edenjermendi.com/"
+              >Portfolio</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <article class="blog-post">
+        <h1 class="gradient-heading">JavaScript &amp; The DOM</h1>
+        <h3>September 2025</h3>
+
+        <h2 class="gradient-heading">Learning Competencies</h2>
+        <p>This blog should strengthen your understanding of:</p>
+        <ul class="inside-dot">
+          <li>JavaScript and its relationship to HTML and CSS</li>
+          <li>Control flow and loops, arrays, and objects</li>
+          <li>Functions and why they are useful</li>
+          <li>The DOM and DevTools</li>
+        </ul>
+
+        <h2 class="gradient-heading">Summary</h2>
+        <p>In this sprint, we learned a bunch of JavaScript!</p>
+
+        <h2 class="gradient-heading">Discussion</h2>
+
+        <h3>
+          An analogy to describe JavaScript and its relationship to HTML and CSS
+        </h3>
+        <p>
+          Like in my earlier blog post where I mentioned the house analogy of
+          HTML being the blueprint or plans/instructions on what to build and
+          the foundations, CSS is the painter, tiler, etc well Javascript would
+          be like the electronic wiring or water or gas. It adds interactivity
+          or functionality to the house/your webpage and kind of brings it all
+          together, because what is a home without power, gas and water?
+        </p>
+
+        <h3>
+          Explain control flow and loops using an example process from everyday
+          life
+        </h3>
+        <p>
+          Control flow is sort of like the order of operations in math, it’s the
+          process by which the webpage is reading the code. Loops are a very
+          efficient way of avoiding writing the same thing repeated over and
+          over again, we can just use a loop to automate it!
+        </p>
+        <p>
+          Control flow is like making a cup of tea, the order everything is done
+          has to be correct in order to brew a perfect cuppa. The control flow
+          decision would be if the water is finished boiling, pour the water
+          into the cup. But a loop would be, check if water is done boiling if
+          not keep checking, if its done move to next step.
+        </p>
+
+        <h3>
+          Describe what the DOM is and an example of how you might interact with
+          it
+        </h3>
+        <p>
+          The DOM which stands for Document Object Model is a fancy way of
+          basically saying this is how the control flow of your HTML
+          (blueprint), CSS (paint and furnishings) and JS (electrical wiring
+          etc.) all work together when being seen or retrieved by the browser
+          from your raw code.
+        </p>
+        <p>
+          You can interact with it by opening Dev Tools (right click and
+          inspect/inspect element) and typing JS code into the console, as well
+          as use the pointer to find the exact node (basically an object that
+          contains elements and other information) to target or modify.
+        </p>
+        <p>
+          <strong>NOTE:</strong> Changes made in the DOM do
+          <strong>NOT</strong> change the actual file, so if you want to alter
+          it use the normal Git process. Playing around with the DOM is a fun
+          and very helpful way of understanding how all these aspects come
+          together and are interpreted and spit back out to the user via
+          browser.
+        </p>
+
+        <h3>
+          Explain the difference between accessing data from arrays and objects
+        </h3>
+        <p>
+          An array is like a list, it can hold string (text) or numbers but
+          unlike an object you can’t store or access keys. Objects are more
+          handy for when you want to store various types of information on a
+          user for example so their user name is the key and within that you can
+          store arrays or other data types.
+        </p>
+        <p>
+          So accessing data from each differs as you can only really go between
+          the indexes on an array whereas objects you can store way more
+          information on just 1 user or key. So accessing an array is like
+          reading a shopping list, item 1, item 2 and so on. Accessing an object
+          is more like opening a box or a file with all sorts of information on
+          it.
+        </p>
+
+        <pre><code>// Array example
+let shoppingList = ['milk', 'bread', 'eggs']
+console.log(shoppingList[0])   // "milk"
+console.log(shoppingList[2])   // "eggs"
+
+// Object example
+let user = {
+  name: 'Eden',
+  age: 25,
+  hobbies: ['coding', 'gaming']
+}
+console.log(user.name)         // "Eden"
+console.log(user.hobbies[1])   // "gaming"
+</code></pre>
+
+        <h3>Explain what functions are and why they are helpful</h3>
+        <p>
+          Functions are a helpful way of writing and re-using code. For example,
+          instead of writing the same logic every time, you can make a function
+          that checks which key the user presses. Then, based on that key, the
+          function can trigger a different action or show something new on the
+          screen.
+        </p>
+        <p>
+          It also super helpful to organise your code especially with larger
+          projects, and make changes in a more clear and easy to navigate
+          manner.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 Eden Jermendi |
+        <a href="mailto:ejermendi@gmail.com">Contact</a>
+      </p>
+    </footer>
+  </body>
+</html>
