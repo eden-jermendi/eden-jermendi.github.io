@@ -374,3 +374,9 @@ footer a {
 .inside-dot {
   list-style: inside;
 }
+
+/* EXTRA */
+
+#tewhare {
+  max-width: 600px;
+}
